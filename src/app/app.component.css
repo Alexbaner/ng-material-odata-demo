@@ -1,0 +1,46 @@
+.example-fill-remaining-space {
+    flex: 1 1 auto;
+}
+
+md-toolbar {
+    position: fixed;
+    z-index: 100;
+}
+
+md-grid-list {
+    top: 50px;
+}
+
+
+/* Structure */
+
+.example-container {
+    display: flex;
+    padding-top: 50px;
+    flex-direction: column;
+    max-height: 500px;
+    min-width: 300px;
+}
+
+.example-header {
+    min-height: 64px;
+    display: flex;
+    align-items: center;
+    padding-left: 24px;
+    font-size: 20px;
+}
+
+.example-header {
+    min-height: 64px;
+    display: flex;
+    align-items: baseline;
+    padding: 8px 24px 0;
+    font-size: 20px;
+    justify-content: space-between;
+}
+
+.mat-input-container {
+    font-size: 14px;
+    flex-grow: 1;
+    margin-left: 32px;
+}
