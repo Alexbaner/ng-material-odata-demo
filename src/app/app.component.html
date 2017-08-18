@@ -4,7 +4,7 @@
   <span class="example-fill-remaining-space"></span>
 
 </md-toolbar>
-<div class="example-container mat-elevation-z8">
+<div class="example-container mat-elevation-z8" [hidden]="showSpinner">
   <div class="example-header">
     <md-input-container floatPlaceholder="never">
       <input mdInput #filter placeholder="Filter">
@@ -39,3 +39,7 @@
     <md-row *cdkRowDef="let row; columns: displayedColumns;"></md-row>
   </md-table>
 </div>
+<section class="example-section" [hidden]="!showSpinner">
+  <md-progress-bar class="example-margin" [color]="'primary'" [mode]="'query'" [value]="75" [bufferValue]="10">
+  </md-progress-bar>
+</section>

@@ -22,6 +22,10 @@ md-grid-list {
     min-width: 300px;
 }
 
+.example-section {
+    padding-top: 64px;
+}
+
 .example-header {
     min-height: 64px;
     display: flex;
@@ -43,4 +47,8 @@ md-grid-list {
     font-size: 14px;
     flex-grow: 1;
     margin-left: 32px;
+}
+
+[hidden] {
+    display: none !important;
 }

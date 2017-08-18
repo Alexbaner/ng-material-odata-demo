@@ -16,8 +16,9 @@ import { Observable } from 'rxjs/Observable';
 export class AppComponent implements OnInit {
   title = 'app';
   private odata: ODataService<Category>;
-  dataSource: OdataFilterableDataSource<Category> | null;
-  displayedColumns = ['CategoryID', 'CategoryName', 'Description'];
+  private showSpinner = true;
+  private dataSource: OdataFilterableDataSource<Category> | null;
+  private displayedColumns = ['CategoryID', 'CategoryName', 'Description'];
   @ViewChild('filter') filter: ElementRef;
 
   constructor(private databaseService: ODataDatabaseService<Category>) {
@@ -34,6 +35,14 @@ export class AppComponent implements OnInit {
           this.dataSource.filter = this.filter.nativeElement.value;
         }
       });
+
+    this.databaseService
+      .dataChange
+      .debounceTime(1000)
+      .subscribe(() => {
+        this.showSpinner = false;
+      });
+
     this.databaseService.load('Categories');
   }
 }
