@@ -1,0 +1,38 @@
+<div class="example-container mat-elevation-z8" [hidden]="showSpinner">
+  <div class="example-header">
+    <md-input-container floatPlaceholder="never">
+      <input mdInput #filter placeholder="Filter">
+    </md-input-container>
+  </div>
+
+  <md-table #productTable [dataSource]="dataSource">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- ID Column -->
+    <ng-container cdkColumnDef="id">
+      <md-header-cell *cdkHeaderCellDef> # </md-header-cell>
+      <md-cell *cdkCellDef="let row"> {{row.ProductID}} </md-cell>
+    </ng-container>
+
+    <!-- Progress Column -->
+    <ng-container cdkColumnDef="name">
+      <md-header-cell *cdkHeaderCellDef> Name </md-header-cell>
+      <md-cell *cdkCellDef="let row"> {{row.ProductName}} </md-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container cdkColumnDef="price">
+      <md-header-cell *cdkHeaderCellDef> Price </md-header-cell>
+      <md-cell *cdkCellDef="let row"> {{row.UnitPrice}} </md-cell>
+    </ng-container>
+
+    <md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
+    <md-row *cdkRowDef="let row; columns: displayedColumns;"></md-row>
+  </md-table>
+</div>
+<section class="example-section" [hidden]="!showSpinner">
+  <md-progress-bar class="example-margin" [color]="'primary'" [mode]="'query'" [value]="75" [bufferValue]="10">
+  </md-progress-bar>
+</section>

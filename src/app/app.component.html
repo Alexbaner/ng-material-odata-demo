@@ -2,44 +2,9 @@
   <span>ng2 odata</span>
 
   <span class="example-fill-remaining-space"></span>
-
+  <nav>
+    <a routerLink="/categories" routerLinkActive="active">Categories</a>
+    <a routerLink="/products" routerLinkActive="active">Products</a>
+  </nav>
 </md-toolbar>
-<div class="example-container mat-elevation-z8" [hidden]="showSpinner">
-  <div class="example-header">
-    <md-input-container floatPlaceholder="never">
-      <input mdInput #filter placeholder="Filter">
-    </md-input-container>
-  </div>
-
-  <md-table #table [dataSource]="dataSource">
-
-    <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition" -->
-
-    <!-- ID Column -->
-    <ng-container cdkColumnDef="CategoryID">
-      <md-header-cell *cdkHeaderCellDef> ID </md-header-cell>
-      <md-cell *cdkCellDef="let row"> {{row.CategoryID}} </md-cell>
-    </ng-container>
-
-    <!-- Progress Column -->
-    <ng-container cdkColumnDef="CategoryName">
-      <md-header-cell *cdkHeaderCellDef> Name </md-header-cell>
-      <md-cell *cdkCellDef="let row"> {{row.CategoryName}} </md-cell>
-    </ng-container>
-
-    <!-- Name Column -->
-    <ng-container cdkColumnDef="Description">
-      <md-header-cell *cdkHeaderCellDef> Description </md-header-cell>
-      <md-cell *cdkCellDef="let row"> {{row.Description}} </md-cell>
-    </ng-container>
-
-
-    <md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
-    <md-row *cdkRowDef="let row; columns: displayedColumns;"></md-row>
-  </md-table>
-</div>
-<section class="example-section" [hidden]="!showSpinner">
-  <md-progress-bar class="example-margin" [color]="'primary'" [mode]="'query'" [value]="75" [bufferValue]="10">
-  </md-progress-bar>
-</section>
+<router-outlet></router-outlet>
