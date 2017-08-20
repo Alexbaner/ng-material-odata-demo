@@ -8,7 +8,7 @@ import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/observable/fromEvent';
 
-import { ODataServiceFactory, ODataService } from 'angular2-odata';
+import { ODataServiceFactory, ODataService, ODataQuery } from 'angular2-odata';
 
 @Injectable()
 export class ODataDatabaseService<T> {
@@ -17,7 +17,17 @@ export class ODataDatabaseService<T> {
 
   constructor(private odataFactory: ODataServiceFactory) { }
 
-  public load(entity: string) {
+  public startQuery(entity: string) {
+    return this.odataFactory.CreateService<T>(entity).Query();
+  }
+
+  public exec(query: ODataQuery<T>) {
+    query.Exec().subscribe(data => {
+      this.dataChange.next(data);
+    });
+  }
+
+  public loadEntity(entity: string) {
     this.odataFactory
       .CreateService<T>(entity)
       .Query()

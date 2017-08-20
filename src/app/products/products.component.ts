@@ -41,7 +41,7 @@ export class ProductsComponent implements OnInit {
         this.showSpinner = false;
       });
 
-    this.databaseService.load('Products');
+    this.databaseService.loadEntity('Products');
 
   }
 }

@@ -10,3 +10,16 @@ md-toolbar {
 md-grid-list {
     top: 50px;
 }
+
+nav > a {
+    height: 100%;
+    color: rgba(166, 154, 154, 0.86);
+    text-decoration: none;
+    border-left: 1px solid rgba(166, 154, 154, 0.86);
+    padding-left: 5px;
+}
+
+nav > a.active {
+    color: white;
+    border-left: 2px solid white;
+}

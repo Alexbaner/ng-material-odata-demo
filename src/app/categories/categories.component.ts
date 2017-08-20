@@ -41,7 +41,7 @@ export class CategoriesComponent implements OnInit {
         this.showSpinner = false;
       });
 
-    this.databaseService.load('Categories');
+    this.databaseService.loadEntity('Categories');
   }
 
 }
