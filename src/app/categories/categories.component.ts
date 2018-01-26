@@ -5,6 +5,7 @@ import { Category } from '../model/NorthwindModel/Category';
 import { ODataDatabaseService } from '../odata-database-service/odata-database.service';
 import { OdataFilterableDataSource } from '../odata-filterable-data-source/odata-filterable-data-source';
 import { Observable } from 'rxjs/Observable';
+import { DataSource } from '@angular/cdk/collections';
 
 @Component({
   selector: 'app-categories',

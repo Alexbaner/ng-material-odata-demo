@@ -7,12 +7,14 @@ import { ODataServiceFactory, ODataConfiguration } from 'angular2-odata';
 import { NorthwindConfigFactory } from './app.odata-config';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from '@angular/material';
-import { CdkTableModule } from '@angular/cdk';
-
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatInputModule } from '@angular/material/input';
 import { AppComponent } from './app.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { ProductsComponent } from './products/products.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+
 
 const appRoutes: Routes = [
   { path: 'categories', component: CategoriesComponent },
@@ -29,7 +31,8 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule, RouterModule.forRoot(appRoutes, {
       enableTracing: true
-    }), HttpModule, MaterialModule, CdkTableModule, BrowserAnimationsModule
+    }), HttpModule, BrowserAnimationsModule, MatToolbarModule, 
+    MatInputModule, MatTableModule, MatProgressBarModule
   ],
   providers: [{
     provide: ODataConfiguration, useFactory: NorthwindConfigFactory

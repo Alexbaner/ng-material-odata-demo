@@ -1,4 +1,3 @@
-import { DataSource } from '@angular/cdk';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/startWith';
@@ -8,6 +7,7 @@ import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/observable/fromEvent';
 import { ODataDatabaseService } from '../odata-database-service/odata-database.service';
+import { DataSource } from '@angular/cdk/collections';
 
 export class OdataFilterableDataSource<T> extends DataSource<T> {
     _filterChange = new BehaviorSubject('');
